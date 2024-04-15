@@ -25,6 +25,18 @@ class BinarySearchTree:
             print(root.key)
             self.inorder(root.right)
 
+    def preorder(self,root):
+        if root:
+            print(root.key)
+            self.preorder(root.left)
+            self.preorder(root.right)
+
+    def postorder(self,root):
+        if root:
+            self.postorder(root.left)
+            self.postorder(root.right)
+            print(root.key)
+
 
 
 
@@ -41,6 +53,14 @@ root=demo.insert(root,8)
 root=demo.insert(root,20)
 
 demo.inorder(root)
+
+print("-------------")
+
+demo.preorder(root)
+print("-------------")
+
+demo.postorder(root)
+
 
 
 
