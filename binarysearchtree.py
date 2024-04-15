@@ -17,7 +17,16 @@ class BinarySearchTree:
                 root.left=self.insert(root.left,key)
             else:
                 root.right=self.insert(root.right,key)
+
         return root
+    
+    def search(self,root,key):
+        if root is None or root.key==key:
+            return root
+        if root.key<key:
+            return self.search(root.right,key)
+        return self.search(root.left,key)
+
     
     def inorder(self,root):
         if root:
@@ -60,7 +69,12 @@ demo.preorder(root)
 print("-------------")
 
 demo.postorder(root)
-
+print("-------------")
+key_to_search = 70
+if demo.search(root, key_to_search):
+    print(f"Key {key_to_search} found in the BST.")
+else:
+    print(f"Key {key_to_search} not found in the BST.")
 
 
 
