@@ -22,7 +22,7 @@ class BinarySearchTree:
     
     def search(self,root,key):
         if root is None or root.key==key:
-            return root
+            return root,print(root.key)
         if root.key<key:
             return self.search(root.right,key)
         return self.search(root.left,key)
@@ -45,6 +45,10 @@ class BinarySearchTree:
             self.postorder(root.left)
             self.postorder(root.right)
             print(root.key)
+
+    def delete(self,root,key):
+        dleteingroot =self.search(root,key)
+        return dleteingroot
 
 
 
@@ -71,8 +75,9 @@ print("-------------")
 demo.postorder(root)
 print("-------------")
 key_to_search = 70
-if demo.search(root, key_to_search):
-    print(f"Key {key_to_search} found in the BST.")
+if demo.delete(root, key_to_search):
+    
+    print(f"Key {root.key,key_to_search} found in the BST.")
 else:
     print(f"Key {key_to_search} not found in the BST.")
 
