@@ -22,9 +22,21 @@ class Graph:
                 queue.extend([v for v in self.graph[vertex] if v not in visited])
         return traversal
     
-    def dfs(self,start):
-        visited=set()
-        pass
+    # def dfs(self,start):
+    #     visited=set()
+    #     pass
+
+
+    visited= set()     
+    def dfs(self,visited,node):
+        if node not in self.graph:
+            print('node not in')
+            return 
+        if node not in visited:
+            print(node)
+            visited.add(node)
+            for i in self.graph[node]:
+                self.dfs(self.graph,visited,i)
 
 
     
@@ -43,3 +55,4 @@ print(demo.graph)
 
 
 print(demo.bfs(6))
+print(demo.dfs(6,4))
