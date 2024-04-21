@@ -11,16 +11,15 @@ def repeated_string(string):
     print(demo)
 
     max_count=0
-    repated=None
+    # repated=None
 
-    for ch, count in demo.items():
-        if count > max_count:
-            max_count=count
-            repated=ch
+    for count in demo.values():
+        if count > 1:
+            max_count+=count
 
         
 
-    return repated
+    return max_count
 
 a=repeated_string(string)
 print(a)
