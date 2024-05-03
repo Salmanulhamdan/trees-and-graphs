@@ -9,7 +9,11 @@
 # print(list(map(lambda x: x*2,a)))
 
 
-a=[(5,2),(3,4)]
-
-d,b=a.pop()
-print(d,b)
+a=[(5,2),(3,4)]+[8]
+a.insert(1,3)
+# d,b=a.pop()
+# print(d,b)
+print(a)
+# del (a)
+a.remove(3)
+print(a)
