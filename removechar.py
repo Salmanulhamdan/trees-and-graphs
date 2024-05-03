@@ -3,7 +3,7 @@ def numDifferentIntegers( word):
     word = ''.join(c if c.isdigit() else ' ' for c in word)
     numbers=word.split()
     for i in numbers:
-        print(i,"first")
+        print(i,"first")    
         i=i.lstrip('0')
         print(i)
         a.add(i)

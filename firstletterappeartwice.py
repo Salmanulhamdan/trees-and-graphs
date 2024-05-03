@@ -16,7 +16,6 @@ def repeatedCharacter(s):
                 
     return min(dic,key=lambda x : dic[x])
 
-    
 
 
 

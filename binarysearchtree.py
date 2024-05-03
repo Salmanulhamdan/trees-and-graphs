@@ -46,9 +46,41 @@ class BinarySearchTree:
             self.postorder(root.right)
             print(root.key)
 
-    def delete(self,root,key):
-        dleteingroot =self.search(root,key)
-        return dleteingroot
+    def delete(self, root, key):
+        if root is None:
+            return root
+
+        if key < root.key:
+            root.left = self.delete(root.left, key)
+        elif key > root.key:
+            root.right = self.delete(root.right, key)
+        else:
+            # Node with only one child or no child
+            if root.left is None:
+                temp = root.right
+                root = None
+                return temp
+            elif root.right is None:
+                temp = root.left
+                root = None
+                return temp
+
+            # Node with two children: Get the inorder successor
+            temp = self.min_value_node(root.right)
+
+            # Copy the inorder successor's content to this node
+            root.key = temp.key
+
+            # Delete the inorder successor
+            root.right = self.delete(root.right, temp.key)
+
+        return root
+
+    def min_value_node(self, node):
+        current = node
+        while current.left is not None:
+            current = current.left
+        return current
 
 
 
@@ -75,12 +107,9 @@ print("-------------")
 demo.postorder(root)
 print("-------------")
 key_to_search = 70
-if demo.delete(root, key_to_search):
-    
-    print(f"Key {root.key,key_to_search} found in the BST.")
-else:
-    print(f"Key {key_to_search} not found in the BST.")
-
+demo.delete(root, 20)
+demo.postorder(root)
+print("-------------")
 
 
     

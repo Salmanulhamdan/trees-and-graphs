@@ -25,6 +25,8 @@ a=repeated_string(string)
 print(a)
 
 
-# numbers = [-10, -20, -30, -40, -50]
-# max_abs_value = max(numbers, key=abs)
-# print(max_abs_value)
+numbers = [-10, -20, -30, -40, -50]
+max_abs_value = max(numbers, key=abs)
+print(max_abs_value)
+
+
