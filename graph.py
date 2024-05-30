@@ -15,28 +15,49 @@ class Graph:
         traversal=[]
 
         while queue:
+            print(queue)
             vertex=queue.pop(0)
+            print(vertex)
             if vertex not in visited:
                 traversal.append(vertex)
                 visited.add(vertex)
+                # queue.extend(set(self.graph[vertex])-visited)
                 queue.extend([v for v in self.graph[vertex] if v not in visited])
         return traversal
     
-    # def dfs(self,start):
-    #     visited=set()
-    #     pass
+    def dfs(self,start):
+        visited=set()
+        stack=[start]
+        trversal=[]
+
+        while stack:
+            vertex=stack.pop()
+            if vertex not in visited:
+                trversal.append(vertex)
+                visited.add(vertex)
+                stack.extend([v for v in self.graph[vertex] if v not in visited])
+        return trversal
+    
+
+    # def dfs_util(self, vertex, visited):
+
+    #     visited.add(vertex)
+    #     print(vertex, end=" ")
+
+    #     for neighbor in self.graph[vertex]:
+    #         if neighbor not in visited:
+    #             self.dfs_util(neighbor, visited)
+
+    # def Dfs(self, start_vertex):
+    #     visited = set()
+    #     self.dfs_util(start_vertex, visited)
 
 
-    visited= set()     
-    def dfs(self,visited,node):
-        if node not in self.graph:
-            print('node not in')
-            return 
-        if node not in visited:
-            print(node)
-            visited.add(node)
-            for i in self.graph[node]:
-                self.dfs(self.graph,visited,i)
+   
+
+
+   
+
 
 
     
@@ -51,8 +72,10 @@ demo.add_edges(2,4)
 demo.add_edges(5,3)
 demo.add_edges(6,2)
 
-print(demo.graph)
+# print(demo.graph)
 
 
-print(demo.bfs(6))
-print(demo.dfs(6,4))
+print(demo.bfs(2))
+# print(demo.dfs(2))
+# print(demo.Dfs(2))
+# print(demo.dFs(6))

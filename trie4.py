@@ -24,23 +24,6 @@ class Trie:
             node = node.children[ch]
         return node.end_word
     
-    # def prefix_search(self, prefix: str) -> list[str]:
-    #     node = self.root
-    #     for ch in prefix:
-    #         if ch not in node.children:
-    #             return []
-    #         node = node.children[ch]
-
-    #     words = []
-    #     self._dfs(node, prefix, words)
-    #     return words
-
-    # def _dfs(self, node: Trinode, prefix: str, words: list[str]) -> None:
-    #     if node.end_word:
-    #         words.append(prefix)
-
-    #     for ch, child in node.children.items():
-    #         self._dfs(child, prefix + ch, words)
 
 
     def prefix_search(self, prefix: str) -> list[str]:

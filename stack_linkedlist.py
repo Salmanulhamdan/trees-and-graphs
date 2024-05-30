@@ -1,0 +1,3 @@
+def dfs(tree):
+    queue=[]
+    
